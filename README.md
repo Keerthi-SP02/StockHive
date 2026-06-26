@@ -69,13 +69,15 @@ For deployment on Vercel, set this environment variable in the Vercel project:
 VITE_API_URL=https://stockhive-1.onrender.com/api
 ```
 
+If you deleted your local `frontend/.env`, that is okay for deployment as long as Vercel has the variable set in the project settings.
+
 ## Environment variables
 
 ### Backend
 
 - `PORT` - API port
 - `JWT_SECRET` - JWT signing secret
-- `CLIENT_URL` - Frontend origin for CORS
+- `ALLOWED_ORIGINS` - Comma-separated list of allowed frontend origins
 - `DATA_FILE` - Optional local JSON storage path
 - `MONGODB_URI` - Optional MongoDB Atlas URI for a future database migration
 
@@ -89,7 +91,7 @@ VITE_API_URL=https://stockhive-1.onrender.com/api
 
 - Use `npm install`
 - Start command: `npm start`
-- Set `PORT`, `JWT_SECRET`, `CLIENT_URL`, and optionally `DATA_FILE`
+- Set `PORT`, `JWT_SECRET`, `ALLOWED_ORIGINS`, and optionally `DATA_FILE`
 
 ### Frontend on Vercel
 
@@ -97,6 +99,11 @@ VITE_API_URL=https://stockhive-1.onrender.com/api
 - Build command: `npm run build`
 - Output directory: `dist`
 - Add `VITE_API_URL` with your Render backend URL
+
+### Backend CORS
+
+- Set `ALLOWED_ORIGINS=http://localhost:5173,https://stock-hive-five.vercel.app`
+- Keep `credentials: true` in the server CORS config
 
 ## Notes
 
