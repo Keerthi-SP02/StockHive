@@ -11,12 +11,14 @@ const watchlistRoutes = require("./routes/watchlistRoutes");
 const app = express();
 
 const allowedOrigins = new Set(
-  String(process.env.ALLOWED_ORIGINS || "http://localhost:5173,https://stock-hive-five.vercel.app")
+  String(
+    process.env.ALLOWED_ORIGINS ||
+      "http://localhost:5173,https://stockhive-one.vercel.app"
+  )
     .split(",")
-    .map((origin) => origin.trim())
+    .map(origin => origin.trim())
     .filter(Boolean)
 );
-
 const corsOptions = {
   origin(origin, callback) {
     if (!origin) {
