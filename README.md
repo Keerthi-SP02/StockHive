@@ -63,6 +63,12 @@ npm run dev
 
 The app runs on `http://localhost:5173` by default.
 
+For deployment on Vercel, set this environment variable in the Vercel project:
+
+```bash
+VITE_API_URL=https://stockhive-1.onrender.com/api
+```
+
 ## Environment variables
 
 ### Backend
@@ -76,6 +82,21 @@ The app runs on `http://localhost:5173` by default.
 ### Frontend
 
 - `VITE_API_URL` - Backend API base URL
+
+## Deployment
+
+### Backend on Render
+
+- Use `npm install`
+- Start command: `npm start`
+- Set `PORT`, `JWT_SECRET`, `CLIENT_URL`, and optionally `DATA_FILE`
+
+### Frontend on Vercel
+
+- Framework preset: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+- Add `VITE_API_URL` with your Render backend URL
 
 ## Notes
 
