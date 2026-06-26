@@ -13,7 +13,7 @@ const app = express();
 const allowedOrigins = new Set(
   String(
     process.env.ALLOWED_ORIGINS ||
-      "http://localhost:5173,https://stockhive-one.vercel.app"
+      "http://localhost:5173,https://stock-hive-26.vercel.app"
   )
     .split(",")
     .map(origin => origin.trim())

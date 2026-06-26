@@ -102,7 +102,7 @@ If you deleted your local `frontend/.env`, that is okay for deployment as long a
 
 ### Backend CORS
 
-- Set `ALLOWED_ORIGINS=http://localhost:5173,https://stock-hive-five.vercel.app`
+- Set `ALLOWED_ORIGINS=http://localhost:5173,https://stock-hive-26.vercel.app`
 - Keep `credentials: true` in the server CORS config
 
 ## Notes
