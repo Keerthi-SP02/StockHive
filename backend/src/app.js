@@ -10,7 +10,31 @@ const watchlistRoutes = require("./routes/watchlistRoutes");
 
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL || true, credentials: true }));
+const allowedOrigins = new Set(
+  String(process.env.ALLOWED_ORIGINS || process.env.CLIENT_URL || "http://localhost:5173,https://stock-hive-five.vercel.app")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean)
+);
+
+const corsOptions = {
+  origin(origin, callback) {
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.has(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(null, false);
+  },
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(morgan("dev"));
 
